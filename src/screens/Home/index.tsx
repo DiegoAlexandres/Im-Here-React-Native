@@ -1,4 +1,5 @@
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Participant } from '../../components/Participant';
 import { styles } from './styles'
 
 export function Home() {
@@ -35,6 +36,14 @@ export function Home() {
 
       </View>
 
+      <Text style={styles.title}>
+        Participantes
+      </Text>
+
+      <Participant name={"Diego Alexandre"}/>
+      <Participant name={"Alexandre"}/>
+      <Participant name={"Silva"}/>
+      <Participant name={"Dax"}/>
 
     </View>
   )
