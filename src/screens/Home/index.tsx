@@ -1,12 +1,19 @@
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View, ScrollView } from 'react-native';
 import { Participant } from '../../components/Participant';
 import { styles } from './styles'
 
 export function Home() {
+  const participants = ["Diego", "Alexandre", "João", "José", "Maria", "Pedro", "Ana", "Larissa", "Douglas", "Elaine", "Carol"];
   
   function hundleParticipantAdd() {
     return(
       console.log("Participante adicionado!")
+    );
+  }
+
+  function hundleParticipantRemove(name: string) {
+    return(
+      console.log(`Você clicou em remover o partifipante: ${name}`)
     );
   }
   
@@ -40,10 +47,16 @@ export function Home() {
         Participantes
       </Text>
 
-      <Participant name={"Diego Alexandre"}/>
-      <Participant name={"Alexandre"}/>
-      <Participant name={"Silva"}/>
-      <Participant name={"Dax"}/>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {
+          participants.map(participant => (
+            <Participant 
+            key={participant}
+            name={participant} 
+            onRemove={() => hundleParticipantRemove("Diego Alexandre")}/>          
+          ))
+        }
+      </ScrollView>
 
     </View>
   )

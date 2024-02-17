@@ -3,9 +3,10 @@ import { styles } from './styles'
 
 interface Name {
     name: string;
+    onRemove: () => void;
 }
 
-export function Participant({ name }: Name) {
+export function Participant({ name, onRemove }: Name) {
     
     return(       
         <View style={styles.participant}>               
@@ -13,7 +14,7 @@ export function Participant({ name }: Name) {
                 {name}
             </Text>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={onRemove}>
                 <Text style={styles.buttonText}>
                     -
                 </Text>
